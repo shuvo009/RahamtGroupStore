@@ -1,0 +1,61 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.SparesHistoryView"
+	x:Name="UserControl" Height="627" Width="875.5">
+	<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+	<Grid x:Name="LayoutRoot">
+		<telerik:RadDatePicker HorizontalAlignment="Left" Margin="226.665,184.069,0,0" VerticalAlignment="Top" Width="151.243" Height="26" SelectedValue="{Binding SelectedItem.EntryDate}"/>
+		<telerik:RadButton Content="{Binding SearchCotext}" HorizontalAlignment="Left" Margin="572.5,185.509,0,0" VerticalAlignment="Top" Width="95.537" Command="{Binding SearchCommand}" CommandParameter="{Binding SelectedItem}"/>
+		<telerik:RadGridView x:Name="radGridView" HorizontalAlignment="Left" Margin="0,227.95,0,0" VerticalAlignment="Top" Width="875.5" Height="364.104" ItemsSource="{Binding ItemCollection}">
+			<telerik:RadGridView.GroupDescriptors>
+				<telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[unitName], ElementName=radGridView}"/>
+				<telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[section], ElementName=radGridView}"/>
+			</telerik:RadGridView.GroupDescriptors>
+			<telerik:RadGridView.Columns>
+				<telerik:GridViewDataColumn Header="Date" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataFormatString="{}{0:d}" DataMemberBinding="{Binding EntryDate}"/>
+				<telerik:GridViewDataColumn Header="Parteculars" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Parteculars}"/>
+				<telerik:GridViewDataColumn Header="Quantity" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Quantity}"/>
+				<telerik:GridViewDataColumn Header="Req No" HeaderTextAlignment="Center" Width="100" DataMemberBinding="{Binding RequisitionNo}"/>
+				<telerik:GridViewDataColumn Header="Machine Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="120" DataMemberBinding="{Binding MachineInformation.Name}"/>
+				<telerik:GridViewDataColumn Header="Part Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding SparesInformation.PartName}"/>
+				<telerik:GridViewDataColumn Header="Unit" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding MachineInformation.UnitInformation.UnitName}" UniqueName="unitName"/>
+				<telerik:GridViewDataColumn Header="Section" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding MachineInformation.SectionInformation.SectionName}" UniqueName="section"/>
+			</telerik:RadGridView.Columns>
+		</telerik:RadGridView>
+		<telerik:GroupBox HorizontalAlignment="Left" Margin="117.5,39.94,0,0" VerticalAlignment="Top" Height="134.46" Width="640" Header="Machine Information" HorizontalContentAlignment="Center">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="85*"/>
+					<ColumnDefinition Width="166*"/>
+					<ColumnDefinition Width="184*"/>
+					<ColumnDefinition Width="168*"/>
+					<ColumnDefinition Width="25*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Margin="0,9.024,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineInformation.Name}" VerticalAlignment="Top" Grid.Column="1"/>
+				<Label Content="Name :" HorizontalAlignment="Right" Margin="0,3.664,0,0" VerticalAlignment="Top" Height="29.95" Width="56.98"/>
+				<Label Content="Model :" HorizontalAlignment="Right" Margin="0,43.961,0,0" VerticalAlignment="Top" Height="29.95" Width="59.933"/>
+				<TextBlock Margin="0,49.321,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineInformation.Model}" VerticalAlignment="Top" Grid.Column="1"/>
+				<TextBlock Margin="0,7.354,2.333,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineInformation.UnitInformation.UnitName}" VerticalAlignment="Top" Grid.Column="3"/>
+				<Label Content="Unit :" HorizontalAlignment="Right" Margin="0,1.994,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+				<Label Content="Section :" HorizontalAlignment="Right" Margin="0,43.634,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+				<TextBlock Margin="0,48.994,2.333,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineInformation.SectionInformation.SectionName}" VerticalAlignment="Top" Grid.Column="3"/>
+				<telerik:RadButton Content="{Binding MachineButtonContext}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2" Width="109.87" Height="27.95" Command="{Binding GetMachineInfoCommnad, Mode=OneWay}"/>
+				
+			</Grid>
+		</telerik:GroupBox>
+		<Label Content="To" HorizontalAlignment="Left" Margin="382.908,184.062,0,0" VerticalAlignment="Top"/>
+		<TextBlock HorizontalAlignment="Center" Margin="348.578,0,338.078,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}"/>
+		<telerik:RadDatePicker HorizontalAlignment="Left" Margin="414.558,184.069,0,0" VerticalAlignment="Top" Width="140.243" Height="26" SelectedValue="{Binding SecondDate}"/>
+		<StackPanel Margin="674.757,597.054,4.669,3.996" Orientation="Horizontal">
+			<telerik:RadButton Content="{Binding ResetButtonContext}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95.537" VerticalContentAlignment="Bottom" Command="{Binding ResetCommand}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding PrintButtonContext}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="95.537" VerticalContentAlignment="Bottom" Margin="5,0,0,0" Command="{Binding PrintCommand}" CommandParameter="{Binding Items, ElementName=radGridView}"/>
+		</StackPanel>
+	</Grid>
+	</telerik:RadBusyIndicator>
+</UserControl>

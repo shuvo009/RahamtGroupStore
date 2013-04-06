@@ -1,0 +1,43 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.FaultyListView"
+	x:Name="UserControl" Width="811" Height="549">
+	<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+	<Grid x:Name="LayoutRoot">
+		<telerik:RadGridView x:Name="radGridView" Margin="0,86.228,-1,33.95" MinWidth="730" ItemsSource="{Binding ItemCollection}">
+			<telerik:RadGridView.GroupDescriptors>
+				<telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[unitName], ElementName=radGridView}"/>
+				<telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[section], ElementName=radGridView}"/>
+			</telerik:RadGridView.GroupDescriptors>
+			<telerik:RadGridView.Columns>
+				<telerik:GridViewDataColumn Header="Part Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding SparesInformation.PartName}"/>
+				<telerik:GridViewDataColumn Header="Part No" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding SparesInformation.Partno}"/>
+				<telerik:GridViewDataColumn Header="Date" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding EntryDate}" DataFormatString="{}{0:d}"/>
+				<telerik:GridViewDataColumn Header="Unit" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" UniqueName="unitName" DataMemberBinding="{Binding MachineInformation.UnitInformation.UnitName}"/>
+				<telerik:GridViewDataColumn Header="Section" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" UniqueName="section" DataMemberBinding="{Binding MachineInformation.SectionInformation.SectionName}"/>
+				<telerik:GridViewDataColumn Header="Machin Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="120" DataMemberBinding="{Binding MachineInformation.Name}"/>
+				<telerik:GridViewDataColumn Header="Model" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding MachineInformation.Model}"/>
+			</telerik:RadGridView.Columns>
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseDoubleClick">
+					<Custom:EventToCommand Command="{Binding GridViewDoubleClick}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</telerik:RadGridView>
+		<telerik:RadButton HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="{Binding PrintButtonContext}" Command="{Binding PrintCommand}" Width="84.82" Height="28.95" Visibility="{Binding IsPrintButtonVisible}" CommandParameter="{Binding Items, ElementName=radGridView}"/>
+		<TextBlock HorizontalAlignment="Center" Margin="232.198,0,295.661,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}"/>
+		<StackPanel Margin="181.191,49.278,179.078,472.772" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<telerik:RadDatePicker HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="130" SelectedValue="{Binding FistDate}"/>
+			<Label Content="To" HorizontalAlignment="Left" VerticalAlignment="Center" Height="26.95"/>
+			<telerik:RadDatePicker HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="130" SelectedValue="{Binding SecondDate}"/>
+			<telerik:RadButton Content="{Binding SearchCotext}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="77.08" Command="{Binding SearchCommand}"/>
+		</StackPanel>
+	</Grid>
+	</telerik:RadBusyIndicator>
+</UserControl>

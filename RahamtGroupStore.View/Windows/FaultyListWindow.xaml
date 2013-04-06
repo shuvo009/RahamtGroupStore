@@ -1,0 +1,13 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:RahamtGroupStore.View" xmlns:Views="clr-namespace:RahamtGroupStore.View.Views"
+	x:Class="RahamtGroupStore.View.Windows.FaultyListWindow"
+	x:Name="Window"
+	Title="Faulty List"
+	Width="744" Height="480" Background="#FF4B4B4B" Icon="/RahamtGroupStore.View;component/Icons/RahamatGroup.ico">
+
+	<Grid x:Name="LayoutRoot">
+		<Views:FaultyListView x:Name="faultylist" Margin="0,0,10,0" Width="Auto"/>
+	</Grid>
+</Window>

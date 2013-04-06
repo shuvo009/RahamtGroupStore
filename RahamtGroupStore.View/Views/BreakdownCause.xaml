@@ -1,0 +1,46 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.BreakdownCause"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+	<UserControl.DataContext>
+		<ViewModel:BreakdownCaseVm/>
+	</UserControl.DataContext>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="93*"/>
+			<ColumnDefinition Width="72*"/>
+			<ColumnDefinition Width="104*"/>
+			<ColumnDefinition Width="51*"/>
+		</Grid.ColumnDefinitions>
+		<dxe:TextEdit x:Name="BrCause" Grid.Column="2" Margin="0,123.208,0,0" VerticalAlignment="Top" Height="26" Text="{Binding SelectedItem.Cause, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+		<Label Content="Cause : " Grid.Column="1" HorizontalAlignment="Right" Margin="0,122.258,0,0" VerticalAlignment="Top" Target="{Binding Name, ElementName=BrCause}"/>
+		<TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="78.977,0,0,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}" Grid.ColumnSpan="2"/>
+		<StackPanel Grid.ColumnSpan="3" Grid.Column="1" Margin="106.102,301.5,63.25,152.55" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly}">
+			<telerik:RadButton Content="{Binding NewButtonContext}" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="25.95" Width="61.537" Command="{Binding NewCommand}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding UpdateButtonContext}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="25.95" Width="69.037" CommandParameter="{Binding SelectedItem}" Command="{Binding UpdateCommand}"/>
+			<telerik:RadButton Content="{Binding DeleteButtonContext}" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Top" Height="25.95" Width="69.537" CommandParameter="{Binding SelectedItem}" Command="{Binding DeleteCommand}"/>
+			<telerik:RadButton Content="{Binding ResetButtonContext}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="25.95" Width="69.537" Command="{Binding ResetCommand}" CommandParameter="{Binding SelectedItem}"/>
+		</StackPanel>
+		<telerik:RadBusyIndicator Margin="0,48,0,0" Width="186" IsBusy="{Binding IsBusy}">
+			<telerik:RadGridView x:Name="radGridView" Width="186" ItemsSource="{Binding ItemCollection}">
+				<telerik:RadGridView.Columns>
+					<telerik:GridViewDataColumn Header="Cause" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="120" DataMemberBinding="{Binding Cause}"/>
+				</telerik:RadGridView.Columns>
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="SelectionChanged">
+						<i:InvokeCommandAction Command="{Binding GridClickCommand}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</telerik:RadGridView>
+		</telerik:RadBusyIndicator>
+	</Grid>
+</UserControl>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{473D1E08-7553-4BD1-AB25-955881E4DF6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RahamtGroupStore.ViewModel</RootNamespace>
+    <AssemblyName>RahamtGroupStore.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AppLimit.CloudComputing.SharpBox">
+      <HintPath>..\packages\AppLimit.CloudComputing.SharpBox.1.2.0.542\lib\net40-full\AppLimit.CloudComputing.SharpBox.dll</HintPath>
+    </Reference>
+    <Reference Include="AppLimit.CloudComputing.SharpBox.ExperimentalProvider">
+      <HintPath>..\packages\AppLimit.CloudComputing.SharpBox.1.2.0.542\lib\net40-full\AppLimit.CloudComputing.SharpBox.ExperimentalProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="AppLimit.CloudComputing.SharpBox.MockProvider">
+      <HintPath>..\packages\AppLimit.CloudComputing.SharpBox.1.2.0.542\lib\net40-full\AppLimit.CloudComputing.SharpBox.MockProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="DropBoxTokenIssuer">
+      <HintPath>..\packages\AppLimit.CloudComputing.SharpBox.1.2.0.542\lib\net40-full\DropBoxTokenIssuer.exe</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net4">
+      <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net40\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Net40">
+      <HintPath>..\packages\AppLimit.CloudComputing.SharpBox.1.2.0.542\lib\net40-full\Newtonsoft.Json.Net40.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SharpCompress">
+      <HintPath>..\packages\sharpcompress.0.8.2\lib\net40\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Windows.Data, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ReceiptIssue.cs" />
+    <Compile Include="Common\SearchWithPrint.cs" />
+    <Compile Include="Common\WithCartOperations.cs" />
+    <Compile Include="Common\GenericListAndPrint.cs" />
+    <Compile Include="Common\GenericViewModel.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="Converters\AmountCalculator.cs" />
+    <Compile Include="Converters\ReturnableQuantity.cs" />
+    <Compile Include="Methods\UserAccountService.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BreakdownCaseVm.cs" />
+    <Compile Include="ViewModel\BreakdownTypeVm.cs" />
+    <Compile Include="ViewModel\ChangePasswordVm.cs" />
+    <Compile Include="ViewModel\CompanyInformationVm.cs" />
+    <Compile Include="Methods\ExtensionMethods.cs" />
+    <Compile Include="Methods\MiraculousMethods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CreateUserAccountVm.cs" />
+    <Compile Include="ViewModel\DatabaseRestoreBackupVm.cs" />
+    <Compile Include="ViewModel\FaultyHistoryVm.cs" />
+    <Compile Include="ViewModel\FaultyListVm.cs" />
+    <Compile Include="ViewModel\IssuePartsVm.cs" />
+    <Compile Include="ViewModel\LoginVm.cs" />
+    <Compile Include="ViewModel\MachineLedgerVm.cs" />
+    <Compile Include="ViewModel\SparesHistoryVm.cs" />
+    <Compile Include="ViewModel\PurchaseVm.cs" />
+    <Compile Include="ViewModel\ReceiptAndIssueCardListVm.cs" />
+    <Compile Include="ViewModel\ReceiptIssueCartVm.cs" />
+    <Compile Include="ViewModel\ReceiveIssueCardHistoryVm.cs" />
+    <Compile Include="ViewModel\ReceiveIssueTransactionVm.cs" />
+    <Compile Include="ViewModel\RepairCompanyListVm.cs" />
+    <Compile Include="ViewModel\SectionWiseIssueVm.cs" />
+    <Compile Include="ViewModel\SendForRepairVm.cs" />
+    <Compile Include="ViewModel\SpareReceiveVm.cs" />
+    <Compile Include="ViewModel\StockRegisterVm.cs" />
+    <Compile Include="ViewModel\SupplierListVm.cs" />
+    <Compile Include="ViewModel\MachineBreakdownVm.cs" />
+    <Compile Include="ViewModel\MachineInstallationVm.cs" />
+    <Compile Include="ViewModel\MachineListVm.cs" />
+    <Compile Include="ViewModel\OrdinaryTypeVm.cs" />
+    <Compile Include="ViewModel\RepairCompanyVm.cs" />
+    <Compile Include="ViewModel\SectionSetupVm.cs" />
+    <Compile Include="ViewModel\SpareSetupVm.cs" />
+    <Compile Include="ViewModel\SparesListVm.cs" />
+    <Compile Include="ViewModel\SupplierSetupVm.cs" />
+    <Compile Include="ViewModel\UnitSetupVm.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\UnitTypeSetupVm.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Accesstoken.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MVVMLight.Nuget.Readme.txt" />
+    <Content Include="Note.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RahamtGroupStore.Model\RahamtGroupStore.Model.csproj">
+      <Project>{f37bb7e4-d321-4338-b21c-3e1c4d1fe2d5}</Project>
+      <Name>RahamtGroupStore.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

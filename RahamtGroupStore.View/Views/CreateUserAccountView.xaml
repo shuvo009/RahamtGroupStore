@@ -1,0 +1,50 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight"
+	xmlns:w="clr-namespace:RahamtGroupStore.View.Methods" mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.CreateUserAccountView"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+	<UserControl.DataContext>
+		<ViewModel:CreateUserAccountVm/>
+	</UserControl.DataContext>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="185*"/>
+			<ColumnDefinition Width="164*"/>
+			<ColumnDefinition Width="186*"/>
+			<ColumnDefinition Width="105*"/>
+		</Grid.ColumnDefinitions>
+		<TextBlock HorizontalAlignment="Left" Margin="56.198,0,0,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}" Grid.Column="1" Grid.ColumnSpan="2" Height="35.47"/>
+		<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}" HorizontalAlignment="Left" Height="415" Margin="10,55,0,0" VerticalAlignment="Top" Width="174">
+			<telerik:RadGridView x:Name="radGridView" ItemsSource="{Binding ItemCollection}">
+				<telerik:RadGridView.Columns>
+					<telerik:GridViewDataColumn Header="User" MinWidth="100" HeaderTextAlignment="Center" DataMemberBinding="{Binding UserName}" />
+				</telerik:RadGridView.Columns>
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="SelectionChanged">
+						<Custom:EventToCommand Command="{Binding GridClickCommand, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</telerik:RadGridView>
+		</telerik:RadBusyIndicator>
+		<StackPanel Grid.Column="1" Margin="116,309,88.389,145.05" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" IsEnabled="{Binding IsReadOnly}">
+			<telerik:RadButton Content="{Binding NewButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="79.537" Command="{Binding NewCommand, Mode=OneWay}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding UpdateButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="79.537" Margin="5,0,0,0" Command="{Binding UpdateCommand}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding DeleteButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="81.537" Margin="5,0,0,0" Command="{Binding DeleteCommand}" CommandParameter="{Binding SelectedItem}"/>
+		</StackPanel>
+		<dxe:TextEdit Margin="0,151.706,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" Text="{Binding SelectedItem.UserName,  UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" TabIndex="1"/>
+		<Label Content="Username :" HorizontalAlignment="Right" Margin="0,149.756,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <PasswordBox Margin="0,221.106,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26"  w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding SelectedItem.ConformPassword, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" TabIndex="3" />
+		<Label Content="Password :" HorizontalAlignment="Right" Margin="0,184.706,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+		<Label Content="Conform Password :" HorizontalAlignment="Right" Margin="0,219.656,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <PasswordBox Margin="0,187.156,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" w:PasswordHelper.Attach="True" w:PasswordHelper.Password="{Binding SelectedItem.UserPassword, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" TabIndex="2" />
+		<dxe:CheckEdit Grid.Column="2" HorizontalAlignment="Left" Margin="0,252.106,0,0" VerticalAlignment="Top" Content="Is ReadOnly" Foreground="#FFC9C9C9" FontSize="14.667" IsChecked="{Binding SelectedItem.ReadOnly, Mode=TwoWay}" TabIndex="4"/>
+	</Grid>
+</UserControl>

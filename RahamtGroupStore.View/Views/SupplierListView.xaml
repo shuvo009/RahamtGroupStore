@@ -1,0 +1,31 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.SupplierListView"
+	x:Name="UserControl" d:DesignHeight="480" Width="745.143">
+	<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+	<Grid x:Name="LayoutRoot">
+		<telerik:RadGridView x:Name="radGridView" Margin="10,53.714,-0.286,30.95" MinWidth="735.429" ItemsSource="{Binding ItemCollection}">
+			<telerik:RadGridView.Columns>
+				<telerik:GridViewDataColumn Header="Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Name}"/>
+				<telerik:GridViewDataColumn Header="Address" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="150" DataMemberBinding="{Binding Address}"/>
+				<telerik:GridViewDataColumn Header="TelePhone" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding TelePhone}"/>
+				<telerik:GridViewDataColumn Header="Mobile" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Mobile}"/>
+				<telerik:GridViewDataColumn Header="Email" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Email}"/>
+				<telerik:GridViewDataColumn Header="Web Site" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding WebSite}"/>
+			</telerik:RadGridView.Columns>
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseDoubleClick">
+					<Custom:EventToCommand Command="{Binding GridViewDoubleClick}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</telerik:RadGridView>
+		<TextBlock HorizontalAlignment="Center" Margin="318.77,0,271.626,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}"/>
+		<telerik:RadButton Content="{Binding PrintButtonContext}" HorizontalAlignment="Right" Margin="632.225,454.05,0,0" VerticalAlignment="Bottom" Command="{Binding PrintCommand}" CommandParameter="{Binding Items, ElementName=radGridView}" Width="99.487" Visibility="{Binding IsPrintButtonVisible}"/>
+	</Grid>
+	</telerik:RadBusyIndicator>
+</UserControl>

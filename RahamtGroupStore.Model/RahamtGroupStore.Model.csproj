@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F37BB7E4-D321-4338-B21C-3E1C4D1FE2D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RahamtGroupStore.Model</RootNamespace>
+    <AssemblyName>RahamtGroupStore.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseModels\BreakdownCause.cs" />
+    <Compile Include="DatabaseModels\BreakdownType.cs" />
+    <Compile Include="DatabaseModels\CompanyInformation.cs" />
+    <Compile Include="DatabaseModels\FaultSpareHistory.cs" />
+    <Compile Include="DatabaseModels\UserAccount.cs" />
+    <Compile Include="Interfaces\IDatePair.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="DatabaseModels\IssueSpareParts.cs" />
+    <Compile Include="DatabaseModels\MachineBreakdownInformation.cs" />
+    <Compile Include="DatabaseModels\MachineInformation.cs" />
+    <Compile Include="DatabaseModels\MachineLedger.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DatabaseModels\ModelBase.cs" />
+    <Compile Include="DatabaseModels\OrdinaryType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModels\ReceiptAndIssueCard.cs" />
+    <Compile Include="DatabaseModels\ReceiptAndIssueCardInformation.cs" />
+    <Compile Include="DatabaseModels\RepairCompaneyInformation.cs" />
+    <Compile Include="DatabaseModels\RepositoryContext.cs" />
+    <Compile Include="Repository\DataRepository.cs" />
+    <Compile Include="DatabaseModels\SectionInformation.cs" />
+    <Compile Include="DatabaseModels\SendForRepair.cs" />
+    <Compile Include="DatabaseModels\SparesInformation.cs" />
+    <Compile Include="DatabaseModels\StockRegister.cs" />
+    <Compile Include="DatabaseModels\SupplierInformation.cs" />
+    <Compile Include="DatabaseModels\UnitInformation.cs" />
+    <Compile Include="DatabaseModels\UnitType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

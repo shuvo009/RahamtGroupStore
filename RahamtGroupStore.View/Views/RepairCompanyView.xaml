@@ -1,0 +1,56 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.RepairCompanyView"
+	x:Name="UserControl"
+	d:DesignWidth="640" d:DesignHeight="480">
+
+	<UserControl.DataContext>
+		<ViewModel:RepairCompanyVm/>
+	</UserControl.DataContext>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="95*"/>
+			<ColumnDefinition Width="84*"/>
+			<ColumnDefinition Width="100*"/>
+			<ColumnDefinition Width="41*"/>
+		</Grid.ColumnDefinitions>
+		<TextBlock HorizontalAlignment="Center" Margin="10,0,83.742,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}" Grid.Column="1" Grid.ColumnSpan="2"/>
+		<Label Content="Company Name :" HorizontalAlignment="Right" Margin="0,92,0,0" VerticalAlignment="Top" Grid.Column="1" Target="{Binding Name, ElementName=ComanyName}" Height="29.95" Width="124.287"/>
+		<dxe:TextEdit x:Name="ComanyName" HorizontalAlignment="Left" Margin="0,93.332,0,0" VerticalAlignment="Top" Width="198" Grid.Column="2" Height="26" TabIndex="0" Text="{Binding SelectedItem.Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+		<StackPanel IsEnabled="{Binding IsReadOnly}" Grid.ColumnSpan="3" Grid.Column="1" Margin="133.473,431.377,53.378,22.673" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25.95" Width="263.149">
+			<telerik:RadButton Content="{Binding NewButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="57.537" TabIndex="6" Command="{Binding NewCommand}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding UpdateButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="66.037" Margin="5,0,0,0" TabIndex="7" CommandParameter="{Binding SelectedItem}" Command="{Binding UpdateCommand}"/>
+			<telerik:RadButton Content="{Binding DeleteButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="63.537" Margin="5,0,0,0" TabIndex="8" CommandParameter="{Binding SelectedItem}" Command="{Binding DeleteCommand}"/>
+			<telerik:RadButton Content="{Binding ResetButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="61.037" Margin="5,0,0,0" TabIndex="9" Command="{Binding ResetCommand}" CommandParameter="{Binding SelectedItem}"/>
+		</StackPanel>
+		<Label Content="Phone :" HorizontalAlignment="Right" Margin="0,130.333,0,0" VerticalAlignment="Top" Grid.Column="1" Width="59.99" Target="{Binding Name, ElementName=Phone}" Height="29.95"/>
+		<dxe:TextEdit x:Name="Phone" HorizontalAlignment="Left" Margin="0,131.665,0,0" VerticalAlignment="Top" Width="198" Grid.Column="2" Height="26" TabIndex="1" Text="{Binding SelectedItem.Phone, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+		<Label Content="Web Site :" HorizontalAlignment="Right" Margin="0,171,0,0" VerticalAlignment="Top" Grid.Column="1" Target="{Binding Name, ElementName=WebSite}" Height="29.95" Width="76.677"/>
+		<dxe:TextEdit x:Name="WebSite" HorizontalAlignment="Left" Margin="0,172.332,0,0" VerticalAlignment="Top" Width="198" Grid.Column="2" Height="26" TabIndex="2" Text="{Binding SelectedItem.WebSite}"/>
+		<Label Content="Email :" HorizontalAlignment="Right" Margin="0,213.167,0,0" VerticalAlignment="Top" Grid.Column="1" Target="{Binding Name, ElementName=Email}" Height="29.95" Width="52.77"/>
+		<dxe:TextEdit x:Name="Email" HorizontalAlignment="Left" Margin="0,214.499,0,0" VerticalAlignment="Top" Width="198" Grid.Column="2" Height="26" TabIndex="3" Text="{Binding SelectedItem.Email}"/>
+		<Label Content="Address :" HorizontalAlignment="Right" Margin="0,292.334,0,0" VerticalAlignment="Top" Grid.Column="1" Height="29.95" Target="{Binding Name, ElementName=Address}" Width="70.49"/>
+		<dxe:TextEdit x:Name="Address" HorizontalAlignment="Left" Margin="0,293.666,0,0" VerticalAlignment="Top" Width="198" Grid.Column="2"  Height="97.5" TabIndex="5" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding SelectedItem.Address, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+		<Label Content="Contract Person :" HorizontalAlignment="Right" Margin="0,254.001,0,0" VerticalAlignment="Top" Grid.Column="1" Target="{Binding Name, ElementName=ContPerson}" Height="29.95" Width="123.083"/>
+		<dxe:TextEdit x:Name="ContPerson" HorizontalAlignment="Left" Margin="0,255.333,0,0" VerticalAlignment="Top" Width="198" Grid.Column="2" Height="26" TabIndex="4" Text="{Binding SelectedItem.ContractPerson}"/>
+		<telerik:RadBusyIndicator  IsBusy="{Binding IsBusy}" HorizontalAlignment="Left" Margin="0,67,0,0" Width="190">
+			<telerik:RadGridView x:Name="radGridView" Margin="0,2,0,6" ItemsSource="{Binding ItemCollection}" Width="190">
+				<telerik:RadGridView.Columns>
+					<telerik:GridViewDataColumn Header="Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="120" DataMemberBinding="{Binding Name}"/>
+				</telerik:RadGridView.Columns>
+				<i:Interaction.Triggers>
+					<i:EventTrigger EventName="SelectionChanged">
+						<i:InvokeCommandAction Command="{Binding GridClickCommand}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+					</i:EventTrigger>
+				</i:Interaction.Triggers>
+			</telerik:RadGridView>
+		</telerik:RadBusyIndicator>
+	</Grid>
+</UserControl>

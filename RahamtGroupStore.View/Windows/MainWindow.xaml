@@ -1,0 +1,82 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight"
+	xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+	x:Class="RahamtGroupStore.View.Windows.MainWindow"
+	x:Name="HostWindow"
+	Title="Rahamat Group Store Management"
+	Width="822" Height="601" Background="#FF424242" Icon="/RahamtGroupStore.View;component/Icons/RahamatGroup.ico">
+	<DockPanel LastChildFill="True">
+		<Menu VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="16">
+			<MenuItem Header="Setup">
+				<MenuItem Header="Company Info" Command="{Binding MenuCommand}" CommandParameter="CompanyInfoSetup"/>
+				<Separator/>
+				<MenuItem Header="Breakdown Casue" Command="{Binding MenuCommand}" CommandParameter="BreakdownCaseSetup"/>
+				<MenuItem Header="Breakdown Type" Command="{Binding MenuCommand}" CommandParameter="BreakdownTypeSetup"/>
+				<MenuItem Header="Type" Command="{Binding MenuCommand}" CommandParameter="OrdinaryTypeSetup"/>
+				<MenuItem Header="Unit Type" Command="{Binding MenuCommand}" CommandParameter="UnitType"/>
+				<Separator/>
+				<MenuItem Header="Unit" Command="{Binding MenuCommand}" CommandParameter="UnitSetup"/>
+				<MenuItem Header="Section" Command="{Binding MenuCommand}" CommandParameter="SectionSetup"/>
+				<Separator/>
+				<MenuItem Header="Repair Company" Command="{Binding MenuCommand}" CommandParameter="RepairCompanySetup"/>
+				<Separator/>
+				<MenuItem Header="Supplier" Command="{Binding MenuCommand}" CommandParameter="SupplierSetup"/>
+			</MenuItem>
+			<MenuItem Header="Machine">
+				<MenuItem Header="Machine Installation" Command="{Binding MenuCommand}" CommandParameter="MachineInstallation"/>
+				<Separator/>
+				<MenuItem Header="Machine Breakdown" Command="{Binding MenuCommand}" CommandParameter="MachineBreakdown"/>
+			</MenuItem>
+			<MenuItem Header="Spares">
+				<MenuItem Header="Spares Setup" Command="{Binding MenuCommand}" CommandParameter="SparesSetup"/>
+				<Separator/>
+				<MenuItem Header="Purchase" Command="{Binding MenuCommand}" CommandParameter="Purchase"/>
+				<Separator/>
+				<MenuItem Header="Issue Goods" Command="{Binding MenuCommand}" CommandParameter="IssueGoods"/>
+				<Separator/>
+				<MenuItem Header="Send For Repair" Command="{Binding MenuCommand}" CommandParameter="SendForRepair"/>
+				<Separator/>
+				<MenuItem Header="Spare Receive" Command="{Binding MenuCommand}" CommandParameter="SpareReceive"/>
+			</MenuItem>
+			<MenuItem Header="Card">
+				<MenuItem Header="Card Setup" Command="{Binding MenuCommand}" CommandParameter="CardSetup"/>
+				<Separator/>
+				<MenuItem Header="Transactions" Command="{Binding MenuCommand}" CommandParameter="CardTransaction"/>
+			</MenuItem>
+			<MenuItem Header="Report">
+				<MenuItem Header="Machine List" Command="{Binding MenuCommand}" CommandParameter="MachineList"/>
+				<MenuItem Header="Faulty List" Command="{Binding MenuCommand}" CommandParameter="FaultyList"/>
+				<MenuItem Header="Spare List" Command="{Binding MenuCommand}" CommandParameter="SpareList"/>
+				<MenuItem Header="Machine Ledger" Command="{Binding MenuCommand}" CommandParameter="MachineLedger"/>
+				<Separator/>
+				<MenuItem Header="Spares History" Command="{Binding MenuCommand}" CommandParameter="SparesHistory"/>
+				<MenuItem Header="Faulty History" Command="{Binding MenuCommand}" CommandParameter="FaultyHistory"/>
+				<Separator/>
+				<MenuItem Header="Section Wise Issue" Command="{Binding MenuCommand}" CommandParameter="SectionWiseIssue"/>
+				<Separator/>
+				<MenuItem Header="Card List" Command="{Binding MenuCommand}" CommandParameter="CardList"/>
+				<MenuItem Header="Card History" Command="{Binding MenuCommand}" CommandParameter="CardHistory"/>
+				<Separator/>
+				<MenuItem Header="Stock Register" Command="{Binding MenuCommand}" CommandParameter="StockRegister"/>
+				<Separator/>
+				<MenuItem Header="Supplier List" Command="{Binding MenuCommand}" CommandParameter="SupplierList"/>
+				<Separator/>
+				<MenuItem Header="Repair Company List" Command="{Binding MenuCommand}" CommandParameter="RepairCompanyList"/>
+			</MenuItem>
+			<MenuItem Header="Database">
+				<MenuItem Header="Backup Restore" Command="{Binding MenuCommand}" CommandParameter="BackupRestore"/>
+			</MenuItem>
+			<MenuItem Header="Login">
+				<MenuItem Header="Logout" Command="{Binding MenuCommand}" CommandParameter="Login"/>
+				<Separator/>
+				<MenuItem Header="Create Use Account" Command="{Binding MenuCommand}" CommandParameter="CreateUseAccount"/>
+				<MenuItem Header="Change Password" Command="{Binding MenuCommand}" CommandParameter="ChangePassword"/>
+			</MenuItem>
+		</Menu>
+		<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+		       <ContentPresenter x:Name="MainContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+		</telerik:RadBusyIndicator>
+	</DockPanel>
+</Window>

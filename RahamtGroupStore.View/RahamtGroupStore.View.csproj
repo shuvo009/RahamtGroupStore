@@ -1,0 +1,632 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87C133CB-0BCB-475A-B724-4887E56BC657}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RahamtGroupStore.View</RootNamespace>
+    <AssemblyName>RahamtGroupStore.View</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\RahamatGroup.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.1">
+      <HintPath>..\..\Dlls\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v11.1">
+      <HintPath>..\..\Dlls\DevExpress.Xpf.Core.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF4">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF4">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net40\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLight.4.1.26.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=6.2.12.1017, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="telerik.reportviewer.wpf, Version=6.2.12.1017, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="telerik.windows.controls, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="telerik.windows.controls.gridview, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="telerik.windows.controls.ribbonview, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Data, Version=2012.3.1017.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\BackupRestoreCommand.cs" />
+    <Compile Include="Commands\BreakdownCauseCommand.cs" />
+    <Compile Include="Commands\BreakdownTypeCommand.cs" />
+    <Compile Include="Commands\CardHistoryCommand.cs" />
+    <Compile Include="Commands\CardListCommand.cs" />
+    <Compile Include="Commands\CardSetupCommand.cs" />
+    <Compile Include="Commands\CardTransactionCommand.cs" />
+    <Compile Include="Commands\ChangePasswordCommand.cs" />
+    <Compile Include="Commands\CommandParser.cs" />
+    <Compile Include="Commands\CompanyInfoCommand.cs" />
+    <Compile Include="Commands\CreateUserAccountCommand.cs" />
+    <Compile Include="Commands\FaultHistoryCommand.cs" />
+    <Compile Include="Commands\FaultyListCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Commands\IssueGoodsCommand.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\MachineBreakdownCommand.cs" />
+    <Compile Include="Commands\MachineInstallationCommand.cs" />
+    <Compile Include="Commands\MachineLegerCommand.cs" />
+    <Compile Include="Commands\SparesHistoryCommand.cs" />
+    <Compile Include="Commands\MachineListCommand.cs" />
+    <Compile Include="Commands\NotFoundCommand.cs" />
+    <Compile Include="Commands\OrdinaryTypeCommand.cs" />
+    <Compile Include="Commands\PurchaseCommand.cs" />
+    <Compile Include="Commands\RepairComanyCommand.cs" />
+    <Compile Include="Commands\RepairCompanyListCommand.cs" />
+    <Compile Include="Commands\SectionWiseIssueCommand.cs" />
+    <Compile Include="Commands\SpareListCommand.cs" />
+    <Compile Include="Commands\SpareReceiveCommand.cs" />
+    <Compile Include="Commands\SectionCommand.cs" />
+    <Compile Include="Commands\SendForRepair.cs" />
+    <Compile Include="Commands\SparesSetupCommand.cs" />
+    <Compile Include="Commands\StockRegisterCommand.cs" />
+    <Compile Include="Commands\SupplierCommand.cs" />
+    <Compile Include="Commands\SupplierListCommand.cs" />
+    <Compile Include="Commands\UnitCommand.cs" />
+    <Compile Include="Commands\UnitTypeCommand.cs" />
+    <Compile Include="Methods\PasswordEnc.cs" />
+    <Compile Include="Methods\PasswordHelper.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FaultHistoryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FaultHistoryReport.Designer.cs">
+      <DependentUpon>FaultHistoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FaultyListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FaultyListReport.Designer.cs">
+      <DependentUpon>FaultyListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MachineLedgerReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MachineLedgerReport.Designer.cs">
+      <DependentUpon>MachineLedgerReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SparesHistoryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SparesHistoryReport.Designer.cs">
+      <DependentUpon>SparesHistoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MachineListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MachineListReport.Designer.cs">
+      <DependentUpon>MachineListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MainReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MainReport.Designer.cs">
+      <DependentUpon>MainReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReceiptAndIssueCardListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReceiptAndIssueCardListReport.Designer.cs">
+      <DependentUpon>ReceiptAndIssueCardListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReceiveIssueCardHistoryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReceiveIssueCardHistoryReport.Designer.cs">
+      <DependentUpon>ReceiveIssueCardHistoryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RepairCompnayListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RepairCompnayListReport.Designer.cs">
+      <DependentUpon>RepairCompnayListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SectionWiseIssueReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SectionWiseIssueReport.Designer.cs">
+      <DependentUpon>SectionWiseIssueReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SingleMachinfoReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SingleMachinfoReport.Designer.cs">
+      <DependentUpon>SingleMachinfoReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SpareListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SpareListReport.Designer.cs">
+      <DependentUpon>SpareListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\StockRegisterReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\StockRegisterReport.Designer.cs">
+      <DependentUpon>StockRegisterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SupplierListReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SupplierListReport.Designer.cs">
+      <DependentUpon>SupplierListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ViewingRepots.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\BreakdownCause.xaml.cs">
+      <DependentUpon>BreakdownCause.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BreakdownType.xaml.cs">
+      <DependentUpon>BreakdownType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChanagePasswordView.xaml.cs">
+      <DependentUpon>ChanagePasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CompanyInformationView.xaml.cs">
+      <DependentUpon>CompanyInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateUserAccountView.xaml.cs">
+      <DependentUpon>CreateUserAccountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DatabaseBackupRestoreView.xaml.cs">
+      <DependentUpon>DatabaseBackupRestoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FaultyHistoryView.xaml.cs">
+      <DependentUpon>FaultyHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FaultyListView.xaml.cs">
+      <DependentUpon>FaultyListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IssueSpareView.xaml.cs">
+      <DependentUpon>IssueSpareView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MachineBreakdownView.xaml.cs">
+      <DependentUpon>MachineBreakdownView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MachineInstallationView.xaml.cs">
+      <DependentUpon>MachineInstallationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MachineLedgerView.xaml.cs">
+      <DependentUpon>MachineLedgerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SparesHistoryView.xaml.cs">
+      <DependentUpon>SparesHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MachineListView.xaml.cs">
+      <DependentUpon>MachineListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdinaryTypeView.xaml.cs">
+      <DependentUpon>OrdinaryTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PurchaseView.xaml.cs">
+      <DependentUpon>PurchaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptAndIssueCardListView.xaml.cs">
+      <DependentUpon>ReceiptAndIssueCardListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiptIssueCartView.xaml.cs">
+      <DependentUpon>ReceiptIssueCartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiveIssueCardHistoryView.xaml.cs">
+      <DependentUpon>ReceiveIssueCardHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReceiveIssueTransactionView.xaml.cs">
+      <DependentUpon>ReceiveIssueTransactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RepairCompanyView.xaml.cs">
+      <DependentUpon>RepairCompanyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RepairCompnayListView.xaml.cs">
+      <DependentUpon>RepairCompnayListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionSetupView.xaml.cs">
+      <DependentUpon>SectionSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionWiseIssueView.xaml.cs">
+      <DependentUpon>SectionWiseIssueView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SendForRepairView.xaml.cs">
+      <DependentUpon>SendForRepairView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareListView.xaml.cs">
+      <DependentUpon>SpareListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareReceiveView.xaml.cs">
+      <DependentUpon>SpareReceiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpareSetupView.xaml.cs">
+      <DependentUpon>SpareSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StockRegisterView.xaml.cs">
+      <DependentUpon>StockRegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupplierListView.xaml.cs">
+      <DependentUpon>SupplierListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupplierSetupView.xaml.cs">
+      <DependentUpon>SupplierSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnitInformationView.xaml.cs">
+      <DependentUpon>UnitInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UnitTypeSetupView.xaml.cs">
+      <DependentUpon>UnitTypeSetupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FaultyListWindow.xaml.cs">
+      <DependentUpon>FaultyListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MachinListWindow.xaml.cs">
+      <DependentUpon>MachinListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReceiptIssueCartWindow.xaml.cs">
+      <DependentUpon>ReceiptIssueCartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\RepairCompanyListWindow.xaml.cs">
+      <DependentUpon>RepairCompanyListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ReportViewer.xaml.cs">
+      <DependentUpon>ReportViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SpareListWindow.xaml.cs">
+      <DependentUpon>SpareListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SupplierListWindow.xaml.cs">
+      <DependentUpon>SupplierListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ReSources\GeneralStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BreakdownCause.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BreakdownType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ChanagePasswordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CompanyInformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CreateUserAccountView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DatabaseBackupRestoreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FaultyHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FaultyListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\IssueSpareView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MachineBreakdownView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MachineInstallationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MachineLedgerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SparesHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MachineListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\OrdinaryTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PurchaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReceiptAndIssueCardListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReceiptIssueCartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReceiveIssueCardHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReceiveIssueTransactionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RepairCompanyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RepairCompnayListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SectionSetupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SectionWiseIssueView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SendForRepairView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SpareListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SpareReceiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SpareSetupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\StockRegisterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierSetupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UnitInformationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UnitTypeSetupView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\FaultyListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MachinListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ReceiptIssueCartWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\RepairCompanyListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\ReportViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SpareListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\SupplierListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FaultHistoryReport.resx">
+      <DependentUpon>FaultHistoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FaultyListReport.resx">
+      <DependentUpon>FaultyListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MachineLedgerReport.resx">
+      <DependentUpon>MachineLedgerReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SparesHistoryReport.resx">
+      <DependentUpon>SparesHistoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MachineListReport.resx">
+      <DependentUpon>MachineListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MainReport.resx">
+      <DependentUpon>MainReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReceiptAndIssueCardListReport.resx">
+      <DependentUpon>ReceiptAndIssueCardListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReceiveIssueCardHistoryReport.resx">
+      <DependentUpon>ReceiveIssueCardHistoryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RepairCompnayListReport.resx">
+      <DependentUpon>RepairCompnayListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SectionWiseIssueReport.resx">
+      <DependentUpon>SectionWiseIssueReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SingleMachinfoReport.resx">
+      <DependentUpon>SingleMachinfoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SpareListReport.resx">
+      <DependentUpon>SpareListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StockRegisterReport.resx">
+      <DependentUpon>StockRegisterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SupplierListReport.resx">
+      <DependentUpon>SupplierListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <AppDesigner Include="Properties\" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\RahamatGroup.ico" />
+    <Resource Include="StyleSheets\TelerikReportingStyleSheet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MVVMLight.Nuget.Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RahamtGroupStore.Model\RahamtGroupStore.Model.csproj">
+      <Project>{f37bb7e4-d321-4338-b21c-3e1c4d1fe2d5}</Project>
+      <Name>RahamtGroupStore.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RahamtGroupStore.ViewModel\RahamtGroupStore.ViewModel.csproj">
+      <Project>{473d1e08-7553-4bd1-ab25-955881e4df6b}</Project>
+      <Name>RahamtGroupStore.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

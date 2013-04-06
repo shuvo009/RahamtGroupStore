@@ -1,0 +1,8 @@
+﻿E-Mail : rahamatgroupdropbox@gmail.com (Dropbox Email)
+Password : raha)(*&^raha)(*&^951
+App name : rahamatgroup
+App status	: Development (Apply for production status)
+App key	: id5jt1ect0fesds
+App secret :	8thb2scf8b8lnuo
+Access type :	Full Dropbox
+Number of users : Only you (Enable additional users) 

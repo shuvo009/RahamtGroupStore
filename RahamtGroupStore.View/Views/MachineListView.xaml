@@ -1,0 +1,45 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.MachineListView"
+	x:Name="AllMachineList" d:DesignHeight="480" Width="1171">
+
+	<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+	<Grid x:Name="LayoutRoot">
+		<telerik:RadGridView x:Name="radGridView" Margin="0,50,0,30.95" ItemsSource="{Binding ItemCollection}" Width="1171">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseDoubleClick">
+					<i:InvokeCommandAction Command="{Binding GridViewDoubleClick}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			<telerik:RadGridView.GroupDescriptors>
+				<telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[unitName], ElementName=radGridView}"/>
+				<telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[section], ElementName=radGridView}"/>
+			</telerik:RadGridView.GroupDescriptors>
+			<telerik:RadGridView.Columns>
+				<telerik:GridViewDataColumn Header="Machine Name" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="120" DataMemberBinding="{Binding Name}"/>
+				<telerik:GridViewDataColumn Header="Made By" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding MadeBy}"/>
+				<telerik:GridViewDataColumn Header="Model" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Model}"/>
+				<telerik:GridViewDataColumn Header="Year" HeaderTextAlignment="Center" Width="120" ShowDistinctFilters="False" DataMemberBinding="{Binding EntryDate, StringFormat=\{0:d\}}"/>
+				<telerik:GridViewDataColumn Header="M/C SL No" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding McSerialNo}"/>
+				<telerik:GridViewDataColumn Header="Origin" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Origin}"/>
+				<telerik:GridViewDataColumn Header="Delivery" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding Delivery}"/>
+				<telerik:GridViewDataColumn Header="M/C Quantity" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="120" DataMemberBinding="{Binding McQuentity}"/>
+				<telerik:GridViewDataColumn Header="Unit" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" UniqueName="unitName" DataMemberBinding="{Binding UnitInformation.UnitName}">
+					<telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:CountFunction Caption="Total :"/>
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+				<telerik:GridViewDataColumn Header="Section" HeaderTextAlignment="Center" Width="100" UniqueName="section" DataMemberBinding="{Binding SectionInformation.SectionName}"/>
+			</telerik:RadGridView.Columns>
+		</telerik:RadGridView>
+		<telerik:RadButton Content="{Binding PrintButtonContext}" HorizontalAlignment="Right" Margin="1035.5,452.05,0,0" VerticalAlignment="Bottom" Visibility="{Binding IsPrintButtonVisible}" Width="95.5" Command="{Binding PrintCommand}" CommandParameter="{Binding Items, ElementName=radGridView}"/>
+		<TextBlock HorizontalAlignment="Center" Margin="472.792,0,450.792,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Style="{DynamicResource textBoxStyle}"/>
+	</Grid>
+	</telerik:RadBusyIndicator>
+</UserControl>

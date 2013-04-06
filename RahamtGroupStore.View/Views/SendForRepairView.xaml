@@ -1,0 +1,90 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:Custom="http://www.galasoft.ch/mvvmlight"
+	mc:Ignorable="d"
+	x:Class="RahamtGroupStore.View.Views.SendForRepairView"
+	x:Name="UserControl" d:DesignHeight="480" Width="1051" Height="Auto" MinHeight="480">
+
+	<UserControl.DataContext>
+		<ViewModel:SendForRepairVm/>
+	</UserControl.DataContext>
+	<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="370*"/>
+			<ColumnDefinition Width="681*"/>
+		</Grid.ColumnDefinitions>
+		<telerik:GroupBox HorizontalAlignment="Left" Margin="11.5,88.54,0,0" VerticalAlignment="Top" Height="169.96" Width="656" Grid.Column="1" Header="Repair Company Information">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="86*"/>
+					<ColumnDefinition Width="198*"/>
+					<ColumnDefinition Width="135*"/>
+					<ColumnDefinition Width="202*"/>
+					<ColumnDefinition Width="24*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Margin="0,15.36,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.RepairCompaneyInformation.Name}" VerticalAlignment="Top" Grid.Column="1" Height="19.507"/>
+				<Label Content="Name :" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top" Height="29.95" Width="56.98"/>
+				<Label Content="Address :" HorizontalAlignment="Right" Margin="0,56,0,0" VerticalAlignment="Top" Height="29.95" Width="70.49"/>
+				<TextBlock Margin="0,63.108,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.RepairCompaneyInformation.Address}" VerticalAlignment="Top" Grid.Column="1" Height="77.01"/>
+				<Label Content="Phone :" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+				<Label Content="Contract Person :" HorizontalAlignment="Right" Margin="0,56,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+				<TextBlock Margin="0,15.36,3.994,0" TextWrapping="Wrap" Text="{Binding SelectedItem.RepairCompaneyInformation.Phone}" VerticalAlignment="Top" Grid.Column="3" Height="19.507"/>
+				<TextBlock Margin="3.994,63.108,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.RepairCompaneyInformation.ContractPerson}" VerticalAlignment="Top" Grid.Column="3" Height="19.507"/>
+				<telerik:RadButton Content="Company List" HorizontalAlignment="Right" Margin="0,0,0,-0.002" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2" Width="121.203" Command="{Binding GetMachineInfoCommnad, Mode=OneWay}"/><!--GetMachineInfoCommnad is use for get Repair company List-->
+				
+			</Grid>
+		</telerik:GroupBox>
+		<StackPanel  IsEnabled="{Binding IsReadOnly}" Grid.Column="1" Margin="222.796,97,270.13,0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+			<telerik:RadButton Content="{Binding UpdateButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="92.537" Command="{Binding UpdateCommand}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding NewButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="90.537" Command="{Binding NewCommand, Mode=OneWay}" Margin="5,0,0,0"/>
+		</StackPanel>
+		<telerik:RadDatePicker HorizontalAlignment="Left" Margin="141.126,53.502,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="187.743" SelectedValue="{Binding SelectedItem.EntryDate}"/>
+		<TextBlock HorizontalAlignment="Center" Margin="222.796,0,271.904,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Grid.Column="1" Style="{DynamicResource textBoxStyle}"/>
+		<Label Content="Date :" HorizontalAlignment="Left" Margin="87.686,51.541,0,0" VerticalAlignment="Top" Grid.Column="1" Height="29.95" Width="48.44"/>
+		<telerik:GroupBox HorizontalAlignment="Left" Margin="11.5,263.5,0,0" VerticalAlignment="Top" Height="169.96" Width="656" Grid.Column="1" Header="Spares Faulty Information">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="97*"/>
+					<ColumnDefinition Width="152*"/>
+					<ColumnDefinition Width="131*"/>
+					<ColumnDefinition Width="147*"/>
+					<ColumnDefinition Width="118*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Margin="4.999,16.36,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineBreakdownInformation.MachineInformation.Name}" VerticalAlignment="Top" Grid.Column="1"/>
+				<Label Content="M/C Name :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,0,0"/>
+				<TextBlock Margin="4.999,60.36,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineBreakdownInformation.MachineInformation.Model}" VerticalAlignment="Top" Grid.Column="1"/>
+				<Label Content="Model :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,54,0,0"/>
+				<Label Content="Part Name :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,11,0,0" Grid.Column="2"/>
+				<Label Content="Part No :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,55,0,0" Grid.Column="2"/>
+				<TextBlock Margin="0,16.36,0.324,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineBreakdownInformation.SparesInformation.PartName}" VerticalAlignment="Top" Grid.Column="3"/>
+				<TextBlock Margin="0,60.36,0.324,0" TextWrapping="Wrap" Text="{Binding SelectedItem.MachineBreakdownInformation.SparesInformation.Partno}" VerticalAlignment="Top" Grid.Column="3"/>
+				<Label Content="Note :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,95.95,0,0"/>
+				<telerik:RadNumericUpDown HorizontalAlignment="Left" Margin="0,97.896,0,0" VerticalAlignment="Top" Width="146.772" Grid.Column="3" Height="26" IsInteger="True" Value="{Binding SelectedItem.SendQuantity, ValidatesOnDataErrors=True}"/>
+				<dxe:TextEdit Margin="4.999,97.896,0,0" VerticalAlignment="Top" Grid.Column="1" Text="{Binding SelectedItem.Note}"/>
+				<Label Content="Quantity :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,94.609,0.998,0" Grid.Column="2"/>
+				<telerik:RadButton Content="Faulty List" HorizontalAlignment="Right" Margin="0,0,0,-0.002" VerticalAlignment="Bottom" Grid.Column="4" Width="107.817" Command="{Binding GetSpareInfoCommand, Mode=OneWay}"/><!--GetSpareInfoCommand is use for get Faulty List-->
+				
+			</Grid>
+		</telerik:GroupBox>
+		<telerik:RadGridView x:Name="radGridView" Margin="11,51.04,11,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MinWidth="270" ItemsSource="{Binding ItemCollection}">
+			<telerik:RadGridView.Columns>
+				<telerik:GridViewDataColumn Header="Company" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding RepairCompaneyInformation.Name}"/>
+				<telerik:GridViewDataColumn Header="Part" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding MachineBreakdownInformation.SparesInformation.PartName}"/>
+				<telerik:GridViewDataColumn Header="Quantity" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="100" DataMemberBinding="{Binding SendQuantity}"/>
+			</telerik:RadGridView.Columns>
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<Custom:EventToCommand Command="{Binding GridClickCommand, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+		</telerik:RadGridView>
+		<Label Content="Requisition No :" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,50.285,219.265,0" Grid.Column="1"/>
+		<dxe:TextEdit Margin="466.735,53.502,67.5,0" VerticalAlignment="Top" Grid.Column="1" Text="{Binding SelectedItem.RequsitionNo, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+	</Grid>
+	</telerik:RadBusyIndicator>
+</UserControl>

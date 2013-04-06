@@ -1,0 +1,51 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:ViewModel="clr-namespace:RahamtGroupStore.ViewModel.ViewModel;assembly=RahamtGroupStore.ViewModel" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="RahamtGroupStore.View.Views.SectionSetupView" 
+             mc:Ignorable="d" Height="464" Width="915.5">
+	<UserControl.DataContext>
+		<ViewModel:SectionSetupVm/>
+	</UserControl.DataContext>
+	<telerik:RadBusyIndicator IsBusy="{Binding IsBusy}">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="456*"/>
+			<ColumnDefinition Width="118*"/>
+			<ColumnDefinition Width="299*"/>
+			<ColumnDefinition Width="42*"/>
+		</Grid.ColumnDefinitions>
+		<telerik:RadGridView x:Name="radGridView" Margin="10,79,0,10" FontSize="14.667" ItemsSource="{Binding ItemCollection}">
+			<telerik:RadGridView.GroupDescriptors>
+                <telerik:ColumnGroupDescriptor SortDirection="Ascending" Column="{Binding Columns[\unitName\], ElementName=radGridView}"/>
+			</telerik:RadGridView.GroupDescriptors>
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding GridClickCommand}" CommandParameter="{Binding SelectedItem, ElementName=radGridView}"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			<telerik:RadGridView.Columns>
+				<telerik:GridViewDataColumn Header="Section" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="200" DataMemberBinding="{Binding SectionName}"/>
+                <telerik:GridViewDataColumn IsVisible="False" DataMemberBinding="{Binding Id}" SortingState="Ascending"/>
+				<telerik:GridViewDataColumn Header="Unit" HeaderTextAlignment="Center" ShowDistinctFilters="False" Width="150" DataMemberBinding="{Binding UnitInformations.UnitName}" UniqueName="unitName">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:CountFunction Caption="Total :"/>
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+			</telerik:RadGridView.Columns>
+		</telerik:RadGridView>
+		<Label Content="Unit Name :" HorizontalAlignment="Right" Margin="0,93.383,0.098,0" VerticalAlignment="Top" Height="29.95" Width="89.657" Target="{Binding Name, ElementName=Units}" Grid.Column="1"/>
+		<TextBlock HorizontalAlignment="Center" Margin="44.756,0,92.543,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Grid.Column="2" Style="{DynamicResource textBoxStyle}" Height="35.47" Width="161.864"/>
+		<telerik:RadComboBox x:Name="Units" Margin="0.902,97.333,0,0" VerticalAlignment="Top" Grid.Column="2" Height="26" ItemsSource="{Binding UnitInformations}" DisplayMemberPath="UnitName" SelectedItem="{Binding SelectedItem.UnitInformations}"/>
+		<dxe:TextEdit x:Name="SectionName" TextWrapping="Wrap" Margin="0.902,159.333,0,0" VerticalAlignment="Top" Grid.Column="2" Height="130" Text="{Binding SelectedItem.SectionName, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+		<Label Content="Section Name :" HorizontalAlignment="Right" Margin="0,155.383,1.01,0" VerticalAlignment="Top" Height="29.95" Width="109.99" Target="{Binding Name, ElementName=SectionName}" Grid.Column="1"/>
+		<StackPanel IsEnabled="{Binding IsReadOnly}" Grid.Column="1" Margin="69.625,375.5,33.121,62.55" Orientation="Horizontal" HorizontalAlignment="Center" Width="314.482" Grid.ColumnSpan="2">
+			<telerik:RadButton Content="{Binding NewButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="67.87" Command="{Binding NewCommand}" CommandParameter="{Binding SelectedItem}"/>
+			<telerik:RadButton Content="{Binding UpdateButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="83.204" Margin="5,0,0,0" CommandParameter="{Binding SelectedItem}" Command="{Binding UpdateCommand}"/>
+			<telerik:RadButton Content="{Binding DeleteButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="71.204" Margin="5,0,0,0" CommandParameter="{Binding SelectedItem}" Command="{Binding DeleteCommand}"/>
+			<telerik:RadButton Content="{Binding ResetButtonContext}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25.95" Width="77.204" Margin="5,0,0,0" Command="{Binding ResetCommand}" CommandParameter="{Binding SelectedItem}"/>
+		</StackPanel>
+	</Grid>
+	</telerik:RadBusyIndicator>
+</UserControl>
